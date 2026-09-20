@@ -1,0 +1,26 @@
+title: Possible Windows Brute Force Against a User Account
+id: 9a6c6fd0-1c08-44b1-9b51-44c9004f6edb
+status: experimental
+description: Detects five or more failed logons targeting the same account from the same source address within five minutes.
+author: Mini SOC Lab
+date: 2026-09-17
+references:
+    - https://attack.mitre.org/techniques/T1110/
+tags:
+    - attack.credential_access
+    - attack.t1110
+correlation:
+    type: event_count
+    rules:
+        - 79ac2d3d-47b6-4c71-8e2a-42e719c16a01
+    group-by:
+        - Computer
+        - TargetUserName
+        - IpAddress
+    timespan: 5m
+    condition:
+        gte: 5
+falsepositives:
+    - A user repeatedly entering an old password
+    - A misconfigured service account from a known management host
+level: medium

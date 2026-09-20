@@ -1,0 +1,15 @@
+{"timestamp":"2026-09-17T14:32:01Z","channel":"Security","event_id":4625,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"status":"0xC000006D","message":"Failed network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:32:08Z","channel":"Security","event_id":4625,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"status":"0xC000006D","message":"Failed network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:32:15Z","channel":"Security","event_id":4625,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"status":"0xC000006D","message":"Failed network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:32:22Z","channel":"Security","event_id":4625,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"status":"0xC000006D","message":"Failed network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:32:29Z","channel":"Security","event_id":4625,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"status":"0xC000006D","message":"Failed network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:32:41Z","channel":"Security","event_id":4624,"computer":"WIN11-LAB-01","target_user_name":"labuser","ip_address":"192.0.2.44","logon_type":3,"message":"Successful network logon (safe synthetic event)."}
+
+{"timestamp":"2026-09-17T14:34:00Z","channel":"Microsoft-Windows-Sysmon/Operational","event_id":1,"computer":"WIN11-LAB-01","user":"LAB\\labuser","process_image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","parent_image":"C:\\Windows\\explorer.exe","command_line":"powershell.exe -NoProfile -Command Write-Output 'SOC-LAB-TEST'","parent_command_line":"C:\\Windows\\explorer.exe","process_guid":"{LAB-0001}","message":"Benign PowerShell process creation."}
+
+{"timestamp":"2026-09-17T14:34:03Z","channel":"Microsoft-Windows-Sysmon/Operational","event_id":1,"computer":"WIN11-LAB-01","user":"LAB\\labuser","process_image":"C:\\Windows\\System32\\cmd.exe","parent_image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","command_line":"cmd.exe /c echo SOC-LAB-TEST","parent_command_line":"powershell.exe -NoProfile -Command Start-Process cmd.exe '/c echo SOC-LAB-TEST'","process_guid":"{LAB-0002}","parent_process_guid":"{LAB-0001}","message":"Benign PowerShell to Command Prompt process chain."}
