@@ -1,0 +1,35 @@
+title: Command Shell Spawned by PowerShell
+id: eb77452f-45f2-4ff4-9b2c-63cc1bcf67e8
+status: experimental
+description: Detects cmd.exe created by PowerShell. The parent-child sequence can warrant review when it is unusual for the user or host.
+author: Mini SOC Lab
+date: 2026-09-17
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.t1059.003
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection_sysmon:
+        EventID: 1
+    selection_image:
+        Image|endswith: '\\cmd.exe'
+    selection_parent:
+        ParentImage|endswith:
+            - '\\powershell.exe'
+            - '\\pwsh.exe'
+    condition: all of selection_*
+fields:
+    - Computer
+    - User
+    - Image
+    - CommandLine
+    - ParentImage
+    - ParentCommandLine
+    - ProcessGuid
+    - ParentProcessGuid
+falsepositives:
+    - Approved automation that deliberately invokes cmd.exe from PowerShell
+level: medium

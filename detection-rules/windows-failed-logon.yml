@@ -1,0 +1,28 @@
+title: Windows Failed Logon
+id: 79ac2d3d-47b6-4c71-8e2a-42e719c16a01
+status: experimental
+description: Detects a failed Windows authentication event. This base rule is used by the brute-force correlation rule.
+author: Mini SOC Lab
+date: 2026-09-17
+tags:
+    - attack.credential_access
+    - attack.t1110
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4625
+    condition: selection
+fields:
+    - Computer
+    - TargetUserName
+    - IpAddress
+    - LogonType
+    - Status
+    - SubStatus
+falsepositives:
+    - User password typo
+    - Expired or changed password in a saved application credential
+    - Misconfigured scheduled task or service account
+level: low
